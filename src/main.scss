@@ -1,5 +1,27 @@
 $primary: rgb(221, 103, 24); 
 
+@mixin footer__links($color){
+    display: flex;
+    justify-content: space-around;
+    list-style-type: none;
+    color: $color;
+
+    & li a{
+        font-size: 0.68em;
+        font-weight: 600;
+
+        &:visited,
+        &:link{
+            text-decoration: none;
+            color: $color
+        }
+
+        &:hover{
+            text-decoration: underline
+        }
+    }
+}
+
 *, #root{
     margin: 0;
     padding: 0;
@@ -237,8 +259,29 @@ body{
 }
 
 .footer{
-    visibility:hidden;
+    display: grid;
+    padding: 40px;
+    grid-template-columns: 1fr 0.5fr;
+    grid-template-rows: 1fr;
     width: 100%;
     height: 20%;
-    background-color: $primary
+    background-color: #fff;
+    align-items: flex-end;
+    column-gap: 100px;
+
+    &__links--black{
+        @include footer__links(black);
+
+        & div{
+            border-left:1px solid #555
+        }
+    }
+
+    &__links--grey{
+        @include footer__links(grey);
+        span{
+            font-size: 0.8em;
+            font-weight: 500
+        }
+    }
 }
