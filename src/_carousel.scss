@@ -1,0 +1,247 @@
+@mixin button-initial(
+  $background-color,
+  $font-size: initial,
+  $active-background: $background-color,
+  $position: static
+) {
+  background-color: $background-color;
+  font-size: $font-size;
+  border: none;
+  position: $position;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $active-background;
+  }
+}
+
+.container-carousel {
+  margin: 10em auto;
+  width: 70rem;
+  height: 30em;
+  overflow: hidden;
+  position: relative;
+}
+.carousel {
+  display: flex;
+  width: 500%;
+  height: 100%;
+  transition: all 1s;
+
+  &__item {
+    background-color: #fff;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    position: relative;
+    z-index: 100;
+    &__details {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 20px;
+      line-height: 1.6em;
+      width: 46%;
+      position: relative;
+    }
+
+    &__quotes::before {
+      content: '\’\’';
+      font-size: 15em;
+      color: #0aa;
+      position: absolute;
+      top: 20%;
+      left: -20%;
+    }
+
+    &__description {
+      font-size: 1.5em;
+      font-weight: 300;
+    }
+
+    &__author {
+      align-self: flex-end;
+      color: #555;
+      font-size: 1.3em;
+    }
+
+    &__author-desc {
+      color: #555;
+      font-size: 1.05em;
+      width: 100%;
+      align-self: flex-start;
+    }
+
+    &__button {
+      padding: 1em 1.5em;
+      border-radius: 0.7em;
+      top: 85%;
+      left: 45%;
+      color: #fff;
+      background-color: #0cc;
+      cursor: pointer;
+    }
+  }
+
+  &__buttons-container {
+    width: 100%;
+    height: 100%;
+  }
+
+  &__item__button,
+  &__button--next {
+    @include button-initial(#0aa, 1em, #0aa, absolute);
+  }
+
+  &__button--next {
+    padding: 0.7em 1em;
+    font-size: 1.6em;
+    border-radius: 100%;
+    top: 50%;
+    left: 90%;
+    color: #fff;
+  }
+
+  &__index-buttons {
+    position: absolute;
+    top: 93%;
+    left: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+
+    &__button.active {
+      @include button-initial(#f90f);
+      width: 65px;
+      height: 10px;
+      transition: all cubic-bezier(0.075, 0.82, 0.165, 1);
+    }
+
+    &__button {
+      @include button-initial(#f90a);
+      width: 65px;
+      height: 10px;
+    }
+  }
+}
+
+@media (max-width: 1000px) {
+  .container-carousel {
+    margin: 10em auto;
+    width: 50rem;
+    height: 40em;
+    overflow: hidden;
+    position: relative;
+  }
+  .carousel {
+    display: flex;
+    width: 500%;
+    height: 100%;
+    transition: all 1s;
+
+    &__item {
+      background-color: #fff;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      position: relative;
+      z-index: 100;
+
+      &__img {
+        width: 47%;
+      }
+
+      &__details {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 20px;
+        line-height: 1.6em;
+        width: 80%;
+        position: relative;
+      }
+
+      &__quotes::before {
+        content: '\’\’';
+        font-size: 15em;
+        color: #0aa;
+        position: absolute;
+        top: 20%;
+        left: -20%;
+      }
+
+      &__description {
+        font-size: 1.5em;
+        font-weight: 300;
+      }
+
+      &__author {
+        align-self: flex-end;
+        color: #555;
+        font-size: 1.3em;
+      }
+
+      &__author-desc {
+        color: #555;
+        font-size: 1.05em;
+        width: 100%;
+        align-self: flex-start;
+      }
+
+      &__button {
+        padding: 1em 1.5em;
+        border-radius: 0.7em;
+        top: 85%;
+        left: 35%;
+        color: #fff;
+        background-color: #0cc;
+        cursor: pointer;
+      }
+    }
+
+    &__buttons-container {
+      width: 100%;
+      height: 100%;
+    }
+
+    &__item__button,
+    &__button--next {
+      @include button-initial(#0aa, 1em, #0aa, absolute);
+    }
+
+    &__button--next {
+      padding: 0.7em 1em;
+      font-size: 1.6em;
+      border-radius: 100%;
+      top: 70%;
+      left: 80%;
+      color: #fff;
+    }
+
+    &__index-buttons {
+      position: absolute;
+      top: 93%;
+      left: 60%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+
+      &__button.active {
+        @include button-initial(#f90f);
+        width: 65px;
+        height: 10px;
+        transition: all cubic-bezier(0.075, 0.82, 0.165, 1);
+      }
+
+      &__button {
+        @include button-initial(#f90a);
+        width: 65px;
+        height: 10px;
+      }
+    }
+  }
+}

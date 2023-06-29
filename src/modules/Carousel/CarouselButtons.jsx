@@ -9,32 +9,24 @@ export default function CarouselButtons({ onClick, current }) {
         &gt;
       </button>
       <div className="carousel__index-buttons">
-        <button
-          className="carousel__index-buttons__button"
-          onClick={onClick}
-          value={0}
-        ></button>
-        <button
-          className="carousel__index-buttons__button"
-          onClick={onClick}
-          value={1}
-        ></button>
-        <button
-          className="carousel__index-buttons__button"
-          onClick={onClick}
-          value={2}
-        ></button>
-        <button
-          className="carousel__index-buttons__button"
-          onClick={onClick}
-          value={3}
-        ></button>
-        <button
-          className="carousel__index-buttons__button"
-          onClick={onClick}
-          value={4}
-        ></button>
+        <Button current={current} value={0} onClick={onClick} />
+        <Button current={current} value={1} onClick={onClick} />
+        <Button current={current} value={2} onClick={onClick} />
+        <Button current={current} value={3} onClick={onClick} />
+        <Button current={current} value={4} onClick={onClick} />
       </div>
     </div>
+  );
+}
+
+function Button({ onClick, value, current }) {
+  return (
+    <button
+      className={`carousel__index-buttons__button ${
+        current === value ? 'active' : ''
+      }`}
+      onClick={onClick}
+      value={value}
+    ></button>
   );
 }

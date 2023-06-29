@@ -63,7 +63,7 @@ export default function Carousel() {
         <CarouselItem4 />
         <CarouselItem5 />
       </div>
-      <CarouselButtons onClick={handleClick} />
+      <CarouselButtons onClick={handleClick} current={currentCarouselItem} />
     </article>
   );
 

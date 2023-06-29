@@ -1,430 +1,196 @@
-$primary: rgb(221, 103, 24); 
+@use 'header';
+@use 'modal';
+@use 'carousel';
 
-@mixin footer__links($color){
-    display: flex;
-    justify-content: space-around;
-    list-style-type: none;
-    color: $color;
+$primary: rgb(221, 103, 24);
 
-    & li a{
-        font-size: 0.68em;
-        font-weight: 600;
+@mixin footer__links($color) {
+  display: flex;
+  justify-content: space-around;
+  list-style-type: none;
+  color: $color;
 
-        &:visited,
-        &:link{
-            text-decoration: none;
-            color: $color
-        }
+  & li a {
+    font-size: 0.68em;
+    font-weight: 600;
 
-        &:hover{
-            text-decoration: underline
-        }
-    }
-}
-
-@mixin button-initial($background-color, $font-size: initial, $active-background: $background-color, $position: static,){
-    
-    background-color: $background-color;
-    font-size: $font-size;
-    border: none;
-    position: $position;
-    cursor: pointer;
-
-    &:hover{
-        background-color: $active-background
-    }
-}
-
-
-*, #root{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-
-body{
-    font-family: Arial, Helvetica, sans-serif;
-
-}
-
-.logo{
-    width: 10%;
-    height: 60%
-}
-
-.blackened-theme{
-    position: absolute;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #0003;
-    z-index: 10;
-}
-
-
-.header{
-    display: flex;
-    justify-content: center;
-    gap: 5%;
-    align-items: center;
-    background-color: #fff;
-    height: 10%;
-
-    &__dialog{
-        
-
-        &:link,
-        &:visited{
-            color: #000;
-            text-decoration: none;
-        }
-
-        &:hover{
-            text-decoration: underline;
-        }
-
-        & span{
-            font-size: 60%;
-        }
+    &:visited,
+    &:link {
+      text-decoration: none;
+      color: $color;
     }
 
-    &__dropdown-container{
-        position: relative;
+    &:hover {
+      text-decoration: underline;
     }
-
-    &__dropdown{
-        width: 40em;
-        height: 19em;
-        top: 110%;
-        box-shadow: -1px -1px 6px -1px #0005;
-        border: none
-    }
-
-    &__button{
-        font-family:Arial, Helvetica, sans-serif;
-        background-color: transparent;
-        border: none;
-        cursor: pointer;
-        font-size: 1em;
-        padding: 5px
-    }
-
-
-    &__searchbar{
-        width: 30%;
-        height: 70%;
-
-        &__input{
-        width: 90%;
-        height: 100%;
-        border: none;
-        font-size: 1em;
-
-        &:focus{
-            outline: none;
-        }
-        }
-    }
+  }
 }
 
-.modal{
-    z-index: 20;
-    position: absolute;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+  width: 100vw;
+}
+
+.logo {
+  width: 10%;
+  height: 60%;
+}
+
+.blackened-theme {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #0003;
+  z-index: 10;
+}
+
+.facebook {
+  background-color: #1a1affdd;
+}
+
+.google {
+  background-color: #fff;
+  color: #000;
+  border: 1px solid #000;
+}
+
+.main {
+  background-color: #fff;
+  height: 90%;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 100%;
+  padding: 7em 5em 0;
+
+  &__left {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
-    width: 27em;
-    height: 25em;
-    padding: 4em 0.5em 1em ;
-    background-color: #fff;
-    box-shadow: 0px 0px 3px 2px;
-    top: 7em;
+    gap: 10px;
 
-    &__button-close{
-        position: absolute;
-        padding: 10px;
-        border: none;
-        background: transparent;
-        top: 0;
-        left: 0;
-        width: 10px;
-        height: 10px;
-        font-weight: 1000;
-        font-size: 1em;
-        cursor: pointer;
+    &__title {
+      font-size: 3em;
+      width: 50%;
+      align-self: flex-start;
+      color: $primary;
     }
 
-    &__button{
-        width: 70%;
-        border-radius: 25px;
-        background-color: #000;
-        height: 12%;
-        border: none;
-        color: #fff;
-        cursor: pointer;
-
-        & i{
-            font-size: 150%;
-            margin: 0 10px
-        }
+    &__subtitle {
+      font-weight: 300;
     }
 
-    .facebook{
-        background-color: #1a1affdd;
+    &__text {
+      color: #666;
+      font-size: 1.1em;
     }
 
-    .google{
-        background-color: #fff;
-        color: #000;
-        border: 1px solid #000
+    &__buttons {
+      width: 70%;
+      height: 3em;
+      display: flex;
+      align-items: center;
+      gap: 4%;
+      align-self: flex-start;
     }
 
-    &__forgot-password{
-        &:visited,
-        &:link{
-            color: #000
-        }
+    &__button {
+      width: 40%;
+      height: 100%;
+      background-color: $primary;
+      border: none;
+      border-radius: 7px;
+      color: #fff;
+      font-size: 1em;
+      cursor: pointer;
     }
+  }
 
-    &__register{
-        a{
-            &:visited,
-            &:link{
-            color: #000;
-            text-decoration: none
-        }
-        }
+  &__right {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+
+    &__img {
+      width: 100%;
+      object-fit: contain;
+      object-position: bottom;
     }
-
+  }
 }
 
-.main{
-    background-color: #fff;
-    width: 100%;
-    height: 90%;
-    display: grid;
-    grid-template-columns: 50% 50%;
-    grid-template-rows: 100%;
+.footer {
+  display: grid;
+  padding: 40px;
+  grid-template-columns: 1fr 0.5fr;
+  grid-template-rows: 1fr;
+  width: 100%;
+  height: 20%;
+  background-color: #fff;
+  align-items: flex-end;
+  column-gap: 100px;
+
+  li {
+    padding: 5px;
+  }
+
+  &__links--black {
+    @include footer__links(black);
+
+    & div {
+      border-left: 1px solid #555;
+    }
+  }
+
+  &__links--grey {
+    @include footer__links(grey);
+    span {
+      font-size: 0.8em;
+      font-weight: 500;
+    }
+  }
+}
+
+.translate0 {
+  transform: translateX(0);
+}
+
+.translate20 {
+  transform: translateX(-20%);
+}
+
+.translate40 {
+  transform: translateX(-40%);
+}
+
+.translate60 {
+  transform: translateX(-60%);
+}
+
+.translate80 {
+  transform: translateX(-80%);
+}
+
+@media (max-width: 1000px) {
+  .main {
+    grid-template-columns: 100%;
     padding: 7em 5em 0;
-
-    &__left{
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-        align-items: center;
-        gap: 10px;
-
-        &__title{
-            font-size: 3em;
-            width: 50%;
-            align-self: flex-start;
-            color: $primary;
-        }
-
-        &__subtitle{
-            font-weight: 300;
-        }
-
-        &__text{
-            color: #666;
-            font-size: 1.1em
-        }
-
-        &__buttons{
-            width: 70%;
-            height: 3em;
-            display: flex;
-            align-items: center;
-            gap: 4%;
-            align-self: flex-start;
-        }
-
-        &__button{
-            width: 40%;
-            height: 100%;
-            background-color: $primary;
-            border: none;
-            border-radius: 7px;
-            color: #fff;
-            font-size: 1em
-        }
-    }
-
-    &__right{
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-        align-items: center;
-        gap: 10px;
-        width: 100%;
-
-        &__img{
-            width: 100%;
-            object-fit: contain;
-            object-position: bottom;
-        }
-    }
-}
-
-.container-carousel{
-    margin: 10em auto;
-    width: 85%;
-    height: 30em;
-    overflow: hidden;
+    height: max-content;
     position: relative;
-}
-.carousel{
-    display:flex;
-    width: 500%;
-    height: 100%;
-    transition: all 1s;
 
-
-    &__item{
-        background-color: #fff;
-        width: 100%;
-        height: 100%;
-        display: flex;
-        position: relative;
-
-        &__details{
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-start;
-            gap: 20px;
-            line-height: 1.6em;
-            width: 46%;
-            position: relative;
-        }
-
-        &__quotes::before{
-            content: '\’\’';
-            font-size: 15em;
-            color: #0aa;
-            position: absolute;
-            top: 20%;
-            left: -20%
-        }
-
-        &__description{
-            font-size: 1.5em;
-            font-weight: 300
-        }
-
-        &__author{
-            align-self: flex-end;
-            color: #555;
-            font-size: 1.3em
-        }
-
-        &__author-desc{
-            color: #555;
-            font-size: 1.05em;
-            width: 100%;
-            align-self: flex-start
-        }
-
-        &__button{
-            padding: 1em 1.5em;
-            border-radius: 0.7em;
-            top: 85%;
-            left: 45%;
-            color: #fff;
-            background-color: #0cc
-        }
-
+    &__right {
+      display: none;
     }
-
-
-    &__buttons-container{
-        position: absolute;
-        z-index: 50;
-        width: 100%;
-        height: 100%;
-        top: 0;
-
-    }
-
-    &__item__button,
-    &__button--next{
-        @include button-initial(#0aa, 1em, #0aa, absolute)
-    }
-
-
-    &__button--next{
-        padding: 0.7em 1em;
-        font-size: 1.6em;
-        border-radius: 100%;
-        top: 50%;
-        left: 90%;
-        color: #fff
-    }
-
-        &__index-buttons{
-            position: absolute;
-            top: 93%;
-            left: 60%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 5px;
-
-            &__button{
-                @include button-initial(#f90a);
-                width: 65px;
-                height: 10px;
-
-            }
-        }
-}
-
-.footer{
-    display: grid;
-    padding: 40px;
-    grid-template-columns: 1fr 0.5fr;
-    grid-template-rows: 1fr;
-    width: 100%;
-    height: 20%;
-    background-color: #fff;
-    align-items: flex-end;
-    column-gap: 100px;
-
-    &__links--black{
-        @include footer__links(black);
-
-        & div{
-            border-left:1px solid #555
-        }
-    }
-
-    &__links--grey{
-        @include footer__links(grey);
-        span{
-            font-size: 0.8em;
-            font-weight: 500
-        }
-    }
-}
-
-.translate0{
-    transform: translateX(0)
-}
-
-.translate20{
-    transform: translateX(-20%)
-}
-
-.translate40{
-    transform: translateX(-40%)
-}
-
-.translate60{
-    transform: translateX(-60%)
-}
-
-.translate80{
-    transform: translateX(-80%)
+  }
 }

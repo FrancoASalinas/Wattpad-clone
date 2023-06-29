@@ -5,36 +5,34 @@ export default function Header({ onClick, openLogin, onCloseLogin }) {
   const [openDialog, setOpenDialog] = useState(0);
 
   return (
-    <>
-      <header className="header">
-        <Logo src={'https://www.wattpad.com/img//logos/wp-logo-orange.png'} />
-        <Dialog
-          label={'Explorar'}
-          open={openDialog === 1}
-          onClick={() => {
-            openDialog === 1 ? setOpenDialog(0) : setOpenDialog(1);
-          }}
-        />
-        <Dialog
-          label={'Comunidad'}
-          open={openDialog === 2}
-          onClick={() => {
-            openDialog === 2 ? setOpenDialog(0) : setOpenDialog(2);
-          }}
-        />
-        <Searchbar />
-        <Button label={'Iniciar Sesión'} onClick={onClick} />
-        <Dialog
-          style={{ left: '-14em', width: '20em' }}
-          label={'Español'}
-          open={openDialog === 3}
-          onClick={() => {
-            openDialog === 3 ? setOpenDialog(0) : setOpenDialog(3);
-          }}
-        />
-        <Login open={openLogin} onClick={onCloseLogin} />
-      </header>
-    </>
+    <header className="header">
+      <Logo src={'https://www.wattpad.com/img//logos/wp-logo-orange.png'} />
+      <Dialog
+        label={'Explorar'}
+        open={openDialog === 1}
+        onClick={() => {
+          openDialog === 1 ? setOpenDialog(0) : setOpenDialog(1);
+        }}
+      />
+      <Dialog
+        label={'Comunidad'}
+        open={openDialog === 2}
+        onClick={() => {
+          openDialog === 2 ? setOpenDialog(0) : setOpenDialog(2);
+        }}
+      />
+      <Searchbar />
+      <Button label={'Iniciar Sesión'} onClick={onClick} />
+      <Dialog
+        style={{ left: '-14em', width: '20em' }}
+        label={'Español'}
+        open={openDialog === 3}
+        onClick={() => {
+          openDialog === 3 ? setOpenDialog(0) : setOpenDialog(3);
+        }}
+      />
+      <Login open={openLogin} onClick={onCloseLogin} />
+    </header>
   );
 }
 
