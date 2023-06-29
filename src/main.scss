@@ -59,7 +59,7 @@ body{
     width: 100%;
     height: 100%;
     background-color: #0003;
-    z-index: 200;
+    z-index: 10;
 }
 
 
@@ -72,6 +72,7 @@ body{
     height: 10%;
 
     &__dialog{
+        
 
         &:link,
         &:visited{
@@ -374,7 +375,8 @@ body{
             &__button{
                 @include button-initial(#f90a);
                 width: 65px;
-                height: 10px
+                height: 10px;
+
             }
         }
 }

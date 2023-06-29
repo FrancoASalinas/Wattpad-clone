@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useEffect } from 'react';
 
 export default function Header({ onClick, openLogin, onCloseLogin }) {
   const [openDialog, setOpenDialog] = useState(0);
